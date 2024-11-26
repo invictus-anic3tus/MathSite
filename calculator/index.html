@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MathSite</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<style>
+    :root {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+            "Lucida Sans Unicode", sans-serif;
+        background-color: #ffffff;
+    }
+
+    ul {
+        position: sticky;
+        left: 0;
+        top: 0;
+        width: 100%;
+        list-style-type: none;
+        border: 2px solid;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #homebut {
+        display: inline;
+        float: left;
+        padding-left: 50px;
+        padding-right: 20px;
+        width: 200px;
+    }
+
+    li {
+        display: inline;
+        float: left;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 120px;
+        background-color: aliceblue;
+    }
+
+    li a {
+        color: black;
+        display: block;
+        text-decoration: none;
+        padding: 20px;
+        font-weight: bolder;
+    }
+
+    li:hover {
+        background-color: aqua;
+    }
+
+    #screen {
+        resize: none;
+        background-color: #ffffff;
+        height: 150px;
+        width: 300px;
+        padding: 10px;
+        border: 2px solid;
+        border-radius: 5px;
+        margin: auto;
+        overflow-wrap: break-word;
+        overflow-y: scroll;
+        text-align: left;
+        display: block;
+        white-space: pre-wrap;
+    }
+
+    #calc {
+        background-color: rgb(224, 224, 224);
+        margin: auto;
+        text-align: center;
+        width: 350px;
+        padding: 30px;
+        margin-top: 50px;
+        border: 3px solid;
+        border-radius: 15px;
+    }
+
+    #calc button {
+        width: 50px;
+        height: 50px;
+        display: inline;
+        font-size: larger;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .number {
+        background-color: #ffffff;
+    }
+
+    .operator {
+        background-color: orange;
+    }
+
+    .function {
+        background-color: beige;
+    }
+</style>
+
+<body>
+    <ul>
+        <a href="/"><img src="/images/logolong.png" alt="Math Site" id="homebut"></a>
+        <li><a href="/definitions">Definitions</a></li>
+        <li><a href="/formulas">Formulas</a></li>
+        <li><a href="/calculator">Calculator</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+
+    <div id="calc">
+        <textarea id="screen"></textarea>
+
+        <button onclick="number(1)"class="number">1</button>
+        <button onclick="number(2)"class="number">2</button>
+        <button onclick="number(3)"class="number">3</button>
+
+        <button onclick="operator('multiply')" class="operator">×</button>
+        <button onclick="number(ans)" class="function">Ans</button>
+        <button onclick="functop('sin')" class="function">Sin</button>
+
+        <button onclick="number(4)"class="number">4</button>
+        <button onclick="number(5)"class="number">5</button>
+        <button onclick="number(6)"class="number">6</button>
+
+        <button onclick="operator('divide')" class="operator">÷</button>
+        <button onclick="functop('root')" class="function">√x</button>
+        <button onclick="functop('cos')" class="function">Cos</button>
+
+        <button onclick="number(7)"class="number">7</button>
+        <button onclick="number(8)"class="number">8</button>
+        <button onclick="number(9)"class="number">9</button>
+
+        <button onclick="operator('add')" class="operator">+</button>
+        <button onclick="functop('3root')" class="function">∛</button>
+        <button onclick="functop('tan')" class="function">Tan</button>
+        <button onclick="functop('neg')" class="function">-/+</button>
+
+        <button onclick="number(0)"class="number">0</button>
+
+        <button onclick="operator('2power')" class="function">x²</button>
+
+        <button onclick="operator('subtract')" class="operator">-</button>
+        <button onclick="equals()" class="operator">=</button>
+
+        <button onclick="operator('power')" class="function">x²</button>
+    </div>
+
+
+</body>
+<script>
+
+    const screen = document.getElementById("screen");
+    var hist = [];
+    var readhist = "";
+    var numhistory = [];
+    var opnums = [];
+    var opnum = 0;
+    var laternum = 0;
+    var lastop = "";
+    var currentop = "";
+    var ans = 0;
+    var i = 0;
+
+    async function number(number) {
+        hist.push(number);
+        numhistory.push(number);
+        opnums.push(number);
+
+        if (i == 0) {
+            readhist = hist.join('');
+        }
+        else {
+            readhist += number;
+        }
+
+        console.log(hist);
+        screen.innerHTML = readhist;
+        i++;
+    }
+
+    async function operator(op) {
+        hist.push(" " + op + " ");
+        readhist += " " + op + " ";
+        currentop = op;
+        lastop = op;
+        opnum = parseInt(opnums.join(''));
+        opnums = [];
+        screen.innerHTML = readhist;
+    }
+
+    async function functop(op) {
+        hist.push(" " + op + " ");
+        readhist += " " + op + " ";
+        opnum = parseInt(opnums.join(''));
+        opnums = [];
+        switch (op) {
+            case "root":
+                ans = Math.sqrt(opnum);
+                break;
+            default:
+                break;
+        }
+        hist.push(" " + ans);
+        readhist += " " + ans + ". ";
+        screen.innerHTML = readhist;
+    }
+    
+    async function equals() {
+        hist.push(" equals");
+        readhist += " equals "
+        laternum = parseInt(opnums.join(''));
+        opnums = [];
+        screen.innerHTML = hist;
+        switch (lastop) {
+            case "multiply":
+                ans = opnum * laternum;
+                break;
+            case "divide":
+                ans = opnum / laternum;
+                break;
+            case "add":
+                ans = opnum + laternum;
+                break;
+            case "subtract":
+                ans = opnum - laternum;
+                break;
+            // case "multiply":
+            //     ans = opnum * laternum;
+            //     break;
+            // case "multiply":
+            //     ans = opnum * laternum;
+            //     break;
+            // case "multiply":
+            //     ans = opnum * laternum;
+            //     break;
+            default:
+                console.log("Switch function returned default");
+                break;
+        }
+        hist.push(ans);
+        readhist += ans + "." + "\n\n"
+        screen.innerHTML = readhist;
+    }
+</script>
+
+</html>
