@@ -79,10 +79,15 @@
     .maintext {
         margin-top: 100px;
         margin-left: 300px;
+        margin-right: 300px;
     }
 
     form {
-        position: absolute;
+        position: relative;
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: auto;
+        width: fit-content;
         bottom: 5px;
         border: 2px solid;
         border-radius: 10px;
@@ -141,6 +146,23 @@
         left: 10px;
         height: min-content;
     }
+
+    div.maintext {
+        font-size: larger;
+    }
+    div.maintext a {
+        text-decoration: none;
+    }
+    div.maintext a:link {
+        color: rgb(0, 89, 255);
+    }
+    div.maintext a:visited {
+        color: rgb(195, 0, 255);
+    }
+    div h3 {
+        padding: 0px;
+        margin: 0px;
+    }
 </style>
 
 <body>
@@ -151,8 +173,57 @@
         <li><a href="/calculator">Calculator</a></li>
         <li><a href="/contact">Contact</a></li>
     </ul>
+
     <h1 style="display: block" class="maintext">What is MathSite?</h1>
-    <div class="maintext">MathSite is a one-stop site for all your math needs. We have formulas, rules, and a calculator.</div>
+
+    <div class="maintext" id="about">
+        <div>
+            If you're a student, have you ever been pouring over mathbooks, textbooks, websites, and notes trying to find the formula you need?<br>
+            No more! Welcome to MathSite, where everything you need is right here. On the <a href="/definitions">definitions page</a>, read up on all the terms and rules you need.<br>
+            At the <a href="/formulas">formulas page</a>, you can remember things like the volume of a cone, or maybe learn some for the first time!<br>
+            Next, at the <a href="/calculator">calculator page</a>, use the simple but powerful calculator and notepad for complicated problems, complete with a pi variable, and sine, cosine, and tangent functions.<br>
+            Finally, we have the <a href="/contact">contact page</a>. Here, you can message me personally about things to add, remove, change, whatever! With a safe and open-source email system, I guarantee that I'll read your message and reply as soon as I can.<br>
+            Well, that seems to be it! Take a minute and explore. Maybe you can find some easter eggs?
+        </div>
+    </div>
+
+    <h1 style="display: block" class="maintext">Why did you make it?</h1>
+
+    <div class="maintext" id="why">
+        <div>
+            Because I felt like it!<br>
+            Well, not just that. <br>
+            At the time of manually writing this HTML code, I'm doing <a href="https://hack.club/">Hack Club's</a> High Seas event. It's an event where teenagers from all over the world make coding projects and earn points from them. Granted that it's still going on, (deadline Jan. 31st of 2025) you can sign up <a href="https://ahoy.hack.club/2290">here</a> for free!<br>
+            Now, you may be thinking, "Cool story, but what inspired this project?"<br>
+            Glad you asked.<br>
+            I'm a student of the maths, and the curriculum I use does more giving me memory work than giving me actual work. Meaning, the problems are easy but you need lots of formulas and such. While this is good in some cases, it can be a pain to try to find my notes, formulas, or whatever. Not anymore!
+        </div>
+    </div>
+
+    <h1 style="display: block" class="maintext">Who even are you anyway???</h1>
+
+    <div class="maintext" id="who">
+        <div>
+            <h3>I. Am. ANICETUS!!!!!!</h3><br>
+            If that's vague it's probably a user error.<br>
+            OK fine. Anicetus is the Latin word for "unconquered," which is fitting not only for the <em>OBVIOUS</em> reasons but also because it was a common Roman boy's name. If you're a girl it'd be Aniceta.<br>
+            Unfortunately that still doesn't answer who I am, so let me finish here.<br>I'm an American teenager who loves coding, PCB-ing, roboting, electronicing, designing, and procrastinating. You can email me through the <a href="/contact">contact form</a> below, or shoot me a Slack message if you're in Hack Club. My Slack username is, unsurprisingly, Anicetus. My icon is a neon hexagon.<br>
+            If you hate email, that's weird but OK. Friend me on Discord as anic3tus.
+        </div>
+    </div>
+
+    <h1 style="display: block" class="maintext">Can I add my own formulas and stuff?</h1>
+
+    <div class="maintext" id="where">
+        <div>
+            No.<br><br>
+            OK OK fine, you can. Unfortunately, the Javascript for logins, user submissions, and the like are extremely difficult and I did try. Briefly.<br>
+            So how do I add my own definitions, you ask? It's simple. Literally just <a href="/contact">contact</a> me with the formula/definition.
+            <br>If you have something else to suggest, (new calculator function? CSS rework?) contact me the same, or open a GitHub pull request at <a href="https://github.com/invictus-anic3tus/MathSite/">this website's repository</a>.<br>
+            For the fastest reply, DM me on Hack Club's Slack workspace, which I check regularly. If you aren't part of Hack Club, the next fastest will be email.
+        </div>
+    </div>
+    
     <form id="contact-form">
         <h3 class="ctext">Contact Me</h3>
         <input type="hidden" name="contact_number" value="000001">

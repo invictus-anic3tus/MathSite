@@ -13,6 +13,7 @@
     }
 
     ul {
+        z-index: 1;
         position: sticky;
         left: 0;
         top: 0;
@@ -55,6 +56,10 @@
         background-color: aqua;
     }
 
+    .container {
+        display: flex;
+    }
+
     #screen {
         resize: none;
         background-color: #ffffff;
@@ -73,14 +78,31 @@
     }
 
     #calc {
+        z-index: 2;
         background-color: rgb(224, 224, 224);
-        margin: auto;
         text-align: center;
         width: 350px;
         padding: 30px;
+        margin: auto;
         margin-top: 50px;
+        margin-right: 20px;
         border: 3px solid;
         border-radius: 15px;
+    }
+
+    #notes {
+        
+        z-index: 2;
+        width: fit-content;
+        height: fit-content;
+        text-align: center;
+        margin: auto;
+        margin-top: 50px;
+        margin-left: 20px;
+        border: 3px solid;
+        border-radius: 15px;
+        background-color: rgb(224, 224, 224);
+        padding: 15px;
     }
 
     #calc button {
@@ -114,6 +136,23 @@
     .function {
         background-color: beige;
     }
+
+
+    
+
+    #notes textarea {
+        text-align: left;
+        padding: 10px;
+        font-size: x-large;
+        font-weight: 300;
+        margin: auto;
+        width: 500px;
+        height: 500px;
+        resize: none;
+        border: 2px solid;
+        border-radius: 10px;
+    }
+
 </style>
 
 <body>
@@ -121,11 +160,12 @@
         <a href="/"><img src="/images/logolong.png" alt="Math Site" id="homebut"></a>
         <li><a href="/definitions">Definitions</a></li>
         <li><a href="/formulas">Formulas</a></li>
-        <li><a href="/calculator">Calculator</a></li>
+        <li><a href="/calculator"><i>Calculator</i></a></li>
         <li><a href="/contact">Contact</a></li>
     </ul>
 
-    <div id="calc">
+    <div class="container">
+        <div id="calc">
         <button onclick="window.clear()" id="clear">Clear</button>
 
         <div id="screen"></div>
@@ -151,41 +191,56 @@
         <button onclick="number(9)" class="number">9</button>
 
         <button onclick="operator('+')" class="operator">+</button>
-        <button onclick="functop('cubed root')" class="function">∛</button>
+        <button onclick="functop('cubed root')" class="function">∛x</button>
         <button onclick="functop('tan')" class="function">Tan</button>
         <button onclick="number(ans)" class="function">Ans</button>
 
         <button onclick="number(0)" class="number">0</button>
 
-        <button onclick="operator('2power')" class="function">x²</button>
+        <button onclick="functop('squared')" class="function">x²</button>
 
         <button onclick="operator('subtract')" class="operator">-</button>
         <button onclick="equals()" class="operator">=</button>
 
         <button onclick="number('pi')" class="function">π</button>
+        </div>
+
+        <div id="notes">
+        <h3 id="noteheader">Notes</h3>
+        <textarea name="notepad" id="notepad" placeholder="Calculator Notes"></textarea>
+        </div>
     </div>
-
-
 </body>
 <script>
 
     const screen = document.getElementById("screen");
+    const notepad = document.getElementById("notepad");
     var hist = [];
     var readhist = "";
     var numhistory = [];
     var opnums = [];
     var opnum = 0;
     var laternum = 0;
-    var lastop = "";
+    var lastop = "none";
     var currentop = "";
     var ans = 0;
     var dec = false;
+    var declast = 0;
 
     async function number(number) {
 
         if (dec == true) {
             number = number / 10;
+            number += declast;
+            let index = opnums.length - 2;
+            opnums.splice(index, 1);
+            opnums.splice(index - 1, 1);
+            readhist = readhist.slice(0, -2);
+            console.log(readhist);
             dec = false;
+        }
+        else if (number != '.') {
+            declast = number;
         }
 
         if (number == 'pi') {
@@ -199,7 +254,7 @@
         numhistory.push(number);
         opnums.push(number);
         readhist += number;
-        console.log(hist);
+        //console.log(hist);
         screen.innerHTML = readhist;
     }
 
@@ -219,9 +274,6 @@
         opnum = parseFloat(opnums.join(''));
         opnums = [];
         switch (op) {
-            case "square root":
-                ans = Math.sqrt(opnum);
-                break;
             case "sin":
                 ans = Math.sin(opnum);
                 break;
@@ -231,11 +283,21 @@
             case "tan":
                 ans = Math.tan(opnum);
                 break;
+            case "square root":
+                ans = Math.sqrt(opnum);
+                break;
+            case "cubed root":
+                ans = Math.cbrt(opnum);
+                break;
+            case "squared":
+                ans = opnum * opnum;
+                break;
             default:
                 break;
         }
         hist.push(" " + ans);
-        readhist += " " + ans + ". ";
+        let roundans = parseFloat(ans.toFixed(5));
+        readhist += " " + roundans + ".\n\n";
         screen.innerHTML = readhist;
     }
 
@@ -263,29 +325,30 @@
             case "-":
                 ans = opnum - laternum;
                 break;
-            // case "multiply":
-            //     ans = opnum * laternum;
-            //     break;
-            // case "multiply":
-            //     ans = opnum * laternum;
-            //     break;
-            // case "multiply":
-            //     ans = opnum * laternum;
-            //     break;
+            case 'none':
+                ans = laternum;
+                break;
             default:
                 console.log("Switch function returned default");
                 break;
         }
+        lastop = 'none';
         hist.push(ans);
-        readhist += ans + "." + "\n\n"
+        let roundans = parseFloat(ans.toFixed(5));
+        readhist += roundans + "." + "\n\n"
         screen.innerHTML = readhist;
     }
 
     document.addEventListener('keydown', function (event) {
-        // Access the pressed key using event.key
-        console.log('Key pressed:', event.key);
 
-        keybinds(event.key);
+        if (document.activeElement === notepad) {
+            console.log('Not calculating, focused on notepad.');
+        }
+        else {
+            console.log('Key pressed:', event.key);
+
+            keybinds(event.key);
+        }
     });
     
     async function clear() {
@@ -356,6 +419,7 @@
                 equals()
                 break;
             case 'Enter':
+                event.preventDefault();
                 equals()
                 break;
 
