@@ -12,7 +12,13 @@
         background-color: #ffffff;
     }
 
-    ul {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding: 100px;
+    }
+
+    .navbar {
+        z-index: 1;
         position: sticky;
         left: 0;
         top: 0;
@@ -34,7 +40,7 @@
         width: 200px;
     }
 
-    li {
+    .navbar li {
         display: inline;
         float: left;
         padding-top: 0px;
@@ -43,7 +49,7 @@
         background-color: aliceblue;
     }
 
-    li a {
+    .navbar li a {
         color: black;
         display: block;
         text-decoration: none;
@@ -51,22 +57,143 @@
         font-weight: bolder;
     }
 
-    li:hover {
+    .navbar li:hover {
         background-color: aqua;
+    }
+
+    #maincontain {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-bottom: 100px;
+        width: 50%;
+    }
+
+    #maincontain div h2 {
+        margin-left: -20px;
+        margin-top: 40px;
+    }
+
+    #header {
+        position: relative;
+        left: 10%;
+        width: fit-content;
+    }
+
+    #header p {
+        font-size: larger;
+        font-weight: bold;
+        width: 200px;
+    }
+
+    #dir {
+        position: sticky;
+        left: 10px;
+        top: 120px;
+        width: 20%;
+    }
+
+    #dir li a {
+        text-decoration: none;
+        color: rgb(3, 6, 202);
+    }
+
+    #dir li a:visited {
+        text-decoration: none;
+        color: rgb(3, 6, 202);
     }
 </style>
 
 <body>
-    <ul>
+    <ul class="navbar">
         <a href="/MathSite/"><img src="/MathSite/images/logolong.png" alt="Math Site" id="homebut"></a>
         <li><a href="/MathSite/definitions/"><i>Definitions</i></a></li>
         <li><a href="/MathSite/formulas/">Formulas</a></li>
         <li><a href="/MathSite/calculator/">Calculator</a></li>
         <li><a href="/MathSite/contact/">Contact</a></li>
     </ul>
-    
+
+    <div id="header">
+        <p>Remember:</p> if you are looking for something that you can't find on the page, simply contact me at the
+        contact page with your request.
+    </div>
+
+    <ul id="dir">
+        <h4>Table of Contents</h4>
+        <li><a href="#arithmetic">Arithmetic</a></li>
+        <li><a href="#geometry">Geometry</a></li>
+        <li><a href="#algebra">Algebra</a></li>
+        <li><a href="#linear-algebra">Linear Algebra</a></li>
+        <li><a href="#calculus">Calculus</a></li>
+    </ul>
+
+    <div id="maincontain">
+        <div id="arithmetic">
+            <h2>Arithmetic</h2>
+            <p><strong>Arithmetic:</strong> The branch of mathematics dealing with numbers and basic operations like
+                addition, subtraction, multiplication, and division.</p>
+            <p><strong>Integer:</strong> A whole number that can be positive, negative, or zero, but not a fraction
+                or decimal.</p>
+            <p><strong>Prime Number:</strong> A number greater than 1 that has no divisors other than 1 and itself.
+            </p>
+            <p><strong>Factorial:</strong> The product of all positive integers less than or equal to a given number
+                (denoted as <em>n!</em>). For example, 5! = 5 × 4 × 3 × 2 × 1 = 120.</p>
+        </div>
+
+        <div id="geometry">
+            <h2>Geometry</h2>
+            <p><strong>Geometry:</strong> The branch of mathematics concerned with the properties and relations of
+                points, lines, surfaces, and solids.</p>
+            <p><strong>Angle:</strong> The figure formed by two rays sharing a common endpoint, measured in degrees
+                or radians.</p>
+            <p><strong>Triangle:</strong> A polygon with three sides and three angles. Common types include
+                equilateral, isosceles, and scalene triangles.</p>
+            <p><strong>Circle:</strong> A set of all points in a plane that are a fixed distance (radius) from a
+                given point (center).</p>
+        </div>
+
+        <div id="algebra">
+            <h2>Algebra</h2>
+            <p><strong>Algebra:</strong> The branch of mathematics dealing with symbols and rules for manipulating
+                those symbols, representing numbers and relationships.</p>
+            <p><strong>Variable:</strong> A symbol (often a letter) used to represent an unknown value in an
+                equation or expression.</p>
+            <p><strong>Equation:</strong> A statement that two expressions are equal, often containing one or more
+                variables to solve for.</p>
+            <p><strong>Polynomial:</strong> An algebraic expression consisting of terms that are constants or
+                variables raised to whole-number powers.</p>
+        </div>
+
+        <div id="linear-algebra">
+            <h2>Linear Algebra</h2>
+            <p><strong>Matrix:</strong> A rectangular array of numbers arranged in rows and columns, used in linear
+                algebra to solve systems of equations or transformations.</p>
+            <p><strong>Vector:</strong> A quantity with both magnitude and direction, represented by an arrow in
+                geometry or as an array of numbers in algebra.</p>
+            <p><strong>Determinant:</strong> A scalar value that can be computed from the elements of a square
+                matrix, used to determine whether a matrix is invertible.</p>
+            <p><strong>Eigenvalue:</strong> A scalar that indicates how much a corresponding eigenvector is scaled
+                during a linear transformation.</p>
+        </div>
+
+        <div id="calculus">
+            <h2>Calculus</h2>
+            <p><strong>Calculus:</strong> A branch of mathematics focusing on limits, functions, derivatives,
+                integrals, and infinite series.</p>
+            <p><strong>Derivative:</strong> A measure of how a function changes as its input changes, representing
+                the slope of the function at any given point.</p>
+            <p><strong>Integral:</strong> A fundamental concept in calculus representing the area under a curve or
+                the accumulation of quantities.</p>
+            <p><strong>Limit:</strong> The value that a function or sequence approaches as the input or index
+                approaches some value.</p>
+        </div>
+
+
+    </div>
+
+
+
 </body>
-<script>  
+<script>
 </script>
 
 </html>
