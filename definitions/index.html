@@ -1,255 +1,376 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>MathSite</title>
-    <link rel="icon" type="image/x-icon" href="/MathSite/images/favicon.ico">
-</head>
-<style>
+    <link rel="icon" type="image/x-icon" href="/MathSite/images/favicon.ico" />
+  </head>
+  <style>
     :root {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", sans-serif;
-        background-color: #ffffff;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", sans-serif;
+      background-color: #ffffff;
     }
 
     html {
-        scroll-behavior: smooth;
-        scroll-padding: 100px;
+      scroll-behavior: smooth;
+      scroll-padding: 100px;
     }
 
     .navbar {
-        z-index: 1;
-        position: sticky;
-        left: 0;
-        top: 0;
-        width: 100%;
-        list-style-type: none;
-        border: 2px solid;
-        border-radius: 10px;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(255, 255, 255);
+      z-index: 1;
+      position: sticky;
+      left: 0;
+      top: 0;
+      width: 100%;
+      list-style-type: none;
+      border: 2px solid;
+      border-radius: 10px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgb(255, 255, 255);
     }
 
     #homebut {
-        display: inline;
-        float: left;
-        padding-left: 50px;
-        padding-right: 20px;
-        width: 200px;
+      display: inline;
+      float: left;
+      padding-left: 50px;
+      padding-right: 20px;
+      width: 200px;
     }
 
     .navbar li {
-        display: inline;
-        float: left;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        width: 120px;
-        background-color: aliceblue;
+      display: inline;
+      float: left;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      width: 120px;
+      background-color: aliceblue;
     }
 
     .navbar li a {
-        color: black;
-        display: block;
-        text-decoration: none;
-        padding: 20px;
-        font-weight: bolder;
+      color: black;
+      display: block;
+      text-decoration: none;
+      padding: 20px;
+      font-weight: bolder;
     }
 
     .navbar li:hover {
-        background-color: aqua;
+      background-color: aqua;
     }
 
     #maincontain {
-        margin-left: 25%;
-        margin-right: 25%;
-        margin-bottom: 100px;
-        width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+      margin-bottom: 100px;
+      width: 50%;
     }
 
     #maincontain div h2 {
-        margin-left: -20px;
-        margin-top: 40px;
+      margin-left: -20px;
+      margin-top: 40px;
     }
 
     #header {
-        position: relative;
-        left: 10%;
-        width: fit-content;
+      position: relative;
+      left: 10%;
+      width: fit-content;
     }
 
     #header p {
-        font-size: larger;
-        font-weight: bold;
-        width: 200px;
+      font-size: larger;
+      font-weight: bold;
+      width: 200px;
     }
 
     #dir {
-        position: sticky;
-        left: 10px;
-        top: 120px;
-        width: 20%;
+      position: sticky;
+      left: 10px;
+      top: 120px;
+      width: 20%;
     }
 
     #dir li a {
-        text-decoration: none;
-        color: rgb(3, 6, 202);
+      text-decoration: none;
+      color: rgb(3, 6, 202);
     }
 
     #dir li a:visited {
-        text-decoration: none;
-        color: rgb(3, 6, 202);
+      text-decoration: none;
+      color: rgb(3, 6, 202);
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <ul class="navbar">
-        <a href="/MathSite/"><img src="/MathSite/images/logolong.png" alt="Math Site" id="homebut"></a>
-        <li><a href="/MathSite/definitions/"><i>Definitions</i></a></li>
-        <li><a href="/MathSite/formulas/">Formulas</a></li>
-        <li><a href="/MathSite/calculator/">Calculator</a></li>
-        <li><a href="/MathSite/contact/">Contact</a></li>
+      <a href="/MathSite/"
+        ><img src="/MathSite/images/logolong.png" alt="Math Site" id="homebut"
+      /></a>
+      <li>
+        <a href="/MathSite/definitions/"><i>Definitions</i></a>
+      </li>
+      <li><a href="/MathSite/formulas/">Formulas</a></li>
+      <li><a href="/MathSite/calculator/">Calculator</a></li>
+      <li><a href="/MathSite/contact/">Contact</a></li>
     </ul>
 
     <div id="header">
-        <p>Remember:</p> if you are looking for something that you can't find on the page, simply contact me at the
-        contact page with your request.
+      <p>Remember:</p>
+      if you are looking for something that you can't find on the page, simply
+      contact me at the contact page with your request.
     </div>
 
     <ul id="dir">
-        <h4>Table of Contents</h4>
-        <li><a href="#arithmetic">Arithmetic</a></li>
-        <li><a href="#geometry">Geometry</a></li>
-        <li><a href="#algebra">Algebra</a></li>
-        <li><a href="#linear-algebra">Linear Algebra</a></li>
-        <li><a href="#calculus">Calculus</a></li>
+      <h4>Table of Contents</h4>
+      <li><a href="#arithmetic">Arithmetic</a></li>
+      <li><a href="#geometry">Geometry</a></li>
+      <li><a href="#algebra">Algebra</a></li>
+      <li><a href="#linear-algebra">Linear Algebra</a></li>
+      <li><a href="#calculus">Calculus</a></li>
     </ul>
 
     <div id="maincontain">
-        <div id="arithmetic">
-            <h2>Arithmetic</h2>
-            <p><strong>Arithmetic:</strong> The branch of mathematics dealing with numbers and basic operations like
-                addition, subtraction, multiplication, and division.</p>
-            <p><strong>Integer:</strong> A whole number that can be positive, negative, or zero, but not a fraction
-                or decimal.</p>
-            <p><strong>Prime Number:</strong> A number greater than 1 that has no divisors other than 1 and itself.
-            </p>
-            <p><strong>Factorial:</strong> The product of all positive integers less than or equal to a given number
-                (denoted as <em>n!</em>). For example, 5! = 5 × 4 × 3 × 2 × 1 = 120.</p>
-            <p><strong>Natural Numbers:</strong> Positive whole numbers starting from 1 (e.g., 1, 2, 3...). Sometimes
-                includes 0 depending on the context.</p>
-            <p><strong>Rational Number:</strong> A number that can be expressed as a fraction where both the numerator
-                and denominator are integers, and the denominator is not zero.</p>
-            <p><strong>Irrational Number:</strong> A number that cannot be expressed as a fraction, such as √2 or π,
-                with non-repeating, non-terminating decimals.</p>
-            <p><strong>Greatest Common Divisor (GCD):</strong> The largest number that divides two or more integers
-                without leaving a remainder.</p>
-            <p><strong>Least Common Multiple (LCM):</strong> The smallest multiple that two or more numbers share.</p>
-            <p><strong>Absolute Value:</strong> The distance of a number from 0 on the number line, always non-negative.
-                For example, |−5| = 5.</p>
-        </div>
+      <div id="arithmetic">
+        <h2>Arithmetic</h2>
+        <p>
+          <strong>Arithmetic:</strong> The branch of mathematics dealing with
+          numbers and basic operations like addition, subtraction,
+          multiplication, and division.
+        </p>
+        <p>
+          <strong>Integer:</strong> A whole number that can be positive,
+          negative, or zero, but not a fraction or decimal.
+        </p>
+        <p>
+          <strong>Prime Number:</strong> A number greater than 1 that has no
+          divisors other than 1 and itself.
+        </p>
+        <p>
+          <strong>Factorial:</strong> The product of all positive integers less
+          than or equal to a given number (denoted as <em>n!</em>). For example,
+          5! = 5 × 4 × 3 × 2 × 1 = 120.
+        </p>
+        <p>
+          <strong>Natural Numbers:</strong> Positive whole numbers starting from
+          1 (e.g., 1, 2, 3...). Sometimes includes 0 depending on the context.
+        </p>
+        <p>
+          <strong>Rational Number:</strong> A number that can be expressed as a
+          fraction where both the numerator and denominator are integers, and
+          the denominator is not zero.
+        </p>
+        <p>
+          <strong>Irrational Number:</strong> A number that cannot be expressed
+          as a fraction, such as √2 or π, with non-repeating, non-terminating
+          decimals.
+        </p>
+        <p>
+          <strong>Greatest Common Divisor (GCD):</strong> The largest number
+          that divides two or more integers without leaving a remainder.
+        </p>
+        <p>
+          <strong>Least Common Multiple (LCM):</strong> The smallest multiple
+          that two or more numbers share.
+        </p>
+        <p>
+          <strong>Absolute Value:</strong> The distance of a number from 0 on
+          the number line, always non-negative. For example, |−5| = 5.
+        </p>
+      </div>
 
-        <div id="geometry">
-            <h2>Geometry</h2>
-            <p><strong>Geometry:</strong> The branch of mathematics concerned with the properties and relations of
-                points, lines, surfaces, and solids.</p>
-            <p><strong>Angle:</strong> The figure formed by two rays sharing a common endpoint, measured in degrees
-                or radians.</p>
-            <p><strong>Parallel Lines:</strong> Lines in a plane that never meet, no matter how far they extend.</p>
-            <p><strong>Perpendicular Lines:</strong> Lines that intersect to form a 90-degree angle.</p>
-            <p><strong>Polygon:</strong> A closed, flat shape with straight sides. Examples include triangles,
-                quadrilaterals, pentagons, and hexagons.</p>
-            <p><strong>Pythagorean Theorem:</strong> In a right triangle, the square of the hypotenuse (longest side) is
-                equal to the sum of the squares of the other two sides (a² + b² = c²).</p>
-            <p><strong>Congruent Figures:</strong> Figures that are identical in shape and size, even if rotated or
-                flipped.</p>
-            <p><strong>Area:</strong> The measure of the amount of space inside a 2D shape. For example, the area of a
-                rectangle is length × width.</p>
-            <p><strong>Volume:</strong> The measure of space inside a 3D object, such as a cube or cylinder.</p>
-            <p><strong>Tangent:</strong> A line that touches a curve at exactly one point without crossing it.</p>
-        </div>
+      <div id="geometry">
+        <h2>Geometry</h2>
+        <p>
+          <strong>Geometry:</strong> The branch of mathematics concerned with
+          the properties and relations of points, lines, surfaces, and solids.
+        </p>
+        <p>
+          <strong>Angle:</strong> The figure formed by two rays sharing a common
+          endpoint, measured in degrees or radians.
+        </p>
+        <p>
+          <strong>Parallel Lines:</strong> Lines in a plane that never meet, no
+          matter how far they extend.
+        </p>
+        <p>
+          <strong>Perpendicular Lines:</strong> Lines that intersect to form a
+          90-degree angle.
+        </p>
+        <p>
+          <strong>Polygon:</strong> A closed, flat shape with straight sides.
+          Examples include triangles, quadrilaterals, pentagons, and hexagons.
+        </p>
+        <p>
+          <strong>Pythagorean Theorem:</strong> In a right triangle, the square
+          of the hypotenuse (longest side) is equal to the sum of the squares of
+          the other two sides (a² + b² = c²).
+        </p>
+        <p>
+          <strong>Congruent Figures:</strong> Figures that are identical in
+          shape and size, even if rotated or flipped.
+        </p>
+        <p>
+          <strong>Area:</strong> The measure of the amount of space inside a 2D
+          shape. For example, the area of a rectangle is length × width.
+        </p>
+        <p>
+          <strong>Volume:</strong> The measure of space inside a 3D object, such
+          as a cube or cylinder.
+        </p>
+        <p>
+          <strong>Tangent:</strong> A line that touches a curve at exactly one
+          point without crossing it.
+        </p>
+      </div>
 
-        <div id="algebra">
-            <h2>Algebra</h2>
-            <p><strong>Algebra:</strong> The branch of mathematics dealing with symbols and rules for manipulating
-                those symbols, representing numbers and relationships.</p>
-            <p><strong>Variable:</strong> A symbol (often a letter) used to represent an unknown value in an
-                equation or expression.</p>
-            <p><strong>Equation:</strong> A statement that two expressions are equal, often containing one or more
-                variables to solve for.</p>
-            <p><strong>Polynomial:</strong> An algebraic expression consisting of terms that are constants or
-                variables raised to whole-number powers.</p>
-            <p><strong>Expression:</strong> A combination of numbers, variables, and operations without an equals sign
-                (e.g., 3x + 2).</p>
-            <p><strong>Linear Equation:</strong> An equation of the form ax + b = 0, where the graph is a straight line.
-            </p>
-            <p><strong>Quadratic Equation:</strong> An equation of the form ax² + bx + c = 0, where the graph is a
-                parabola.</p>
-            <p><strong>Absolute Value Equation:</strong> An equation involving the absolute value of a variable, such as
-                |x − 3| = 7.</p>
-            <p><strong>Inequality:</strong> A mathematical statement that uses symbols like <,>, ≤, or ≥ to compare
-                    expressions.</p>
-            <p><strong>Exponential Function:</strong> A function of the form f(x) = a·b^x, where b > 0 and b ≠ 1, often
-                modeling growth or decay.</p>
-            <p><strong>Logarithm:</strong> The inverse of an exponential function; if b^y = x, then log_b(x) = y.</p>
-        </div>
+      <div id="algebra">
+        <h2>Algebra</h2>
+        <p>
+          <strong>Algebra:</strong> The branch of mathematics dealing with
+          symbols and rules for manipulating those symbols, representing numbers
+          and relationships.
+        </p>
+        <p>
+          <strong>Variable:</strong> A symbol (often a letter) used to represent
+          an unknown value in an equation or expression.
+        </p>
+        <p>
+          <strong>Equation:</strong> A statement that two expressions are equal,
+          often containing one or more variables to solve for.
+        </p>
+        <p>
+          <strong>Polynomial:</strong> An algebraic expression consisting of
+          terms that are constants or variables raised to whole-number powers.
+        </p>
+        <p>
+          <strong>Expression:</strong> A combination of numbers, variables, and
+          operations without an equals sign (e.g., 3x + 2).
+        </p>
+        <p>
+          <strong>Linear Equation:</strong> An equation of the form ax + b = 0,
+          where the graph is a straight line.
+        </p>
+        <p>
+          <strong>Quadratic Equation:</strong> An equation of the form ax² + bx
+          + c = 0, where the graph is a parabola.
+        </p>
+        <p>
+          <strong>Absolute Value Equation:</strong> An equation involving the
+          absolute value of a variable, such as |x − 3| = 7.
+        </p>
+        <p>
+          <strong>Inequality:</strong> A mathematical statement that uses
+          symbols like <,>, ≤, or ≥ to compare expressions.
+        </p>
+        <p>
+          <strong>Exponential Function:</strong> A function of the form f(x) =
+          a·b^x, where b > 0 and b ≠ 1, often modeling growth or decay.
+        </p>
+        <p>
+          <strong>Logarithm:</strong> The inverse of an exponential function; if
+          b^y = x, then log_b(x) = y.
+        </p>
+      </div>
 
-        <div id="linear-algebra">
-            <h2>Linear Algebra</h2>
-            <p><strong>Matrix:</strong> A rectangular array of numbers arranged in rows and columns, used in linear
-                algebra to solve systems of equations or transformations.</p>
-            <p><strong>Vector:</strong> A quantity with both magnitude and direction, represented by an arrow in
-                geometry or as an array of numbers in algebra.</p>
-            <p><strong>Determinant:</strong> A scalar value that can be computed from the elements of a square
-                matrix, used to determine whether a matrix is invertible.</p>
-            <p><strong>Eigenvalue:</strong> A scalar that indicates how much a corresponding eigenvector is scaled
-                during a linear transformation.</p>
-            <p><strong>Row Reduction:</strong> The process of using elementary row operations to simplify a matrix,
-                often to row-echelon form.</p>
-            <p><strong>Rank:</strong> The number of linearly independent rows or columns in a matrix.</p>
-            <p><strong>Span:</strong> The set of all possible linear combinations of a set of vectors.</p>
-            <p><strong>Orthogonal Vectors:</strong> Two vectors that have a dot product of zero, indicating they are
-                perpendicular.</p>
-            <p><strong>Diagonalization:</strong> The process of finding a diagonal matrix similar to a given square
-                matrix, using its eigenvalues and eigenvectors.</p>
-            <p><strong>Transformation:</strong> A function mapping vectors from one space to another, often represented
-                by a matrix.</p>
-        </div>
+      <div id="linear-algebra">
+        <h2>Linear Algebra</h2>
+        <p>
+          <strong>Matrix:</strong> A rectangular array of numbers arranged in
+          rows and columns, used in linear algebra to solve systems of equations
+          or transformations.
+        </p>
+        <p>
+          <strong>Vector:</strong> A quantity with both magnitude and direction,
+          represented by an arrow in geometry or as an array of numbers in
+          algebra.
+        </p>
+        <p>
+          <strong>Determinant:</strong> A scalar value that can be computed from
+          the elements of a square matrix, used to determine whether a matrix is
+          invertible.
+        </p>
+        <p>
+          <strong>Eigenvalue:</strong> A scalar that indicates how much a
+          corresponding eigenvector is scaled during a linear transformation.
+        </p>
+        <p>
+          <strong>Row Reduction:</strong> The process of using elementary row
+          operations to simplify a matrix, often to row-echelon form.
+        </p>
+        <p>
+          <strong>Rank:</strong> The number of linearly independent rows or
+          columns in a matrix.
+        </p>
+        <p>
+          <strong>Span:</strong> The set of all possible linear combinations of
+          a set of vectors.
+        </p>
+        <p>
+          <strong>Orthogonal Vectors:</strong> Two vectors that have a dot
+          product of zero, indicating they are perpendicular.
+        </p>
+        <p>
+          <strong>Diagonalization:</strong> The process of finding a diagonal
+          matrix similar to a given square matrix, using its eigenvalues and
+          eigenvectors.
+        </p>
+        <p>
+          <strong>Transformation:</strong> A function mapping vectors from one
+          space to another, often represented by a matrix.
+        </p>
+      </div>
 
-        <div id="calculus">
-            <h2>Calculus</h2>
-            <p><strong>Calculus:</strong> A branch of mathematics focusing on limits, functions, derivatives,
-                integrals, and infinite series.</p>
-            <p><strong>Derivative:</strong> A measure of how a function changes as its input changes, representing
-                the slope of the function at any given point.</p>
-            <p><strong>Integral:</strong> A fundamental concept in calculus representing the area under a curve or
-                the accumulation of quantities.</p>
-            <p><strong>Limit:</strong> The value that a function or sequence approaches as the input or index
-                approaches some value.</p>
-            <p><strong>Chain Rule:</strong> A rule for finding the derivative of a composite function: if y = f(g(x)),
-                then dy/dx = f'(g(x)) * g'(x).</p>
-            <p><strong>Product Rule:</strong> A rule for differentiating the product of two functions: (uv)' = u'v +
-                uv'.</p>
-            <p><strong>Quotient Rule:</strong> A rule for differentiating the division of two functions: (u/v)' = (u'v −
-                uv') / v².</p>
-            <p><strong>Critical Point:</strong> A point on a graph where the derivative is zero or undefined, often
-                indicating a local maximum, minimum, or inflection point.</p>
-            <p><strong>Asymptote:</strong> A line that a curve approaches but never touches as the curve extends to
-                infinity.</p>
-            <p><strong>Definite Integral:</strong> Represents the area under a curve between two bounds, often written
-                as ∫[a,b] f(x) dx.</p>
-            <p><strong>Indefinite Integral:</strong> Represents the general antiderivative of a function, written as
-                ∫f(x) dx + C.</p>
-        </div>
-
-
+      <div id="calculus">
+        <h2>Calculus</h2>
+        <p>
+          <strong>Calculus:</strong> A branch of mathematics focusing on limits,
+          functions, derivatives, integrals, and infinite series.
+        </p>
+        <p>
+          <strong>Derivative:</strong> A measure of how a function changes as
+          its input changes, representing the slope of the function at any given
+          point.
+        </p>
+        <p>
+          <strong>Integral:</strong> A fundamental concept in calculus
+          representing the area under a curve or the accumulation of quantities.
+        </p>
+        <p>
+          <strong>Limit:</strong> The value that a function or sequence
+          approaches as the input or index approaches some value.
+        </p>
+        <p>
+          <strong>Chain Rule:</strong> A rule for finding the derivative of a
+          composite function: if y = f(g(x)), then dy/dx = f'(g(x)) * g'(x).
+        </p>
+        <p>
+          <strong>Product Rule:</strong> A rule for differentiating the product
+          of two functions: (uv)' = u'v + uv'.
+        </p>
+        <p>
+          <strong>Quotient Rule:</strong> A rule for differentiating the
+          division of two functions: (u/v)' = (u'v − uv') / v².
+        </p>
+        <p>
+          <strong>Critical Point:</strong> A point on a graph where the
+          derivative is zero or undefined, often indicating a local maximum,
+          minimum, or inflection point.
+        </p>
+        <p>
+          <strong>Asymptote:</strong> A line that a curve approaches but never
+          touches as the curve extends to infinity.
+        </p>
+        <p>
+          <strong>Definite Integral:</strong> Represents the area under a curve
+          between two bounds, often written as ∫[a,b] f(x) dx.
+        </p>
+        <p>
+          <strong>Indefinite Integral:</strong> Represents the general
+          antiderivative of a function, written as ∫f(x) dx + C.
+        </p>
+      </div>
     </div>
-
-
-
-</body>
-<script>
-</script>
-
+  </body>
+  <script></script>
 </html>

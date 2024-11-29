@@ -1,71 +1,209 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>MathSite</title>
-    <link rel="icon" type="image/x-icon" href="/MathSite/images/favicon.ico">
-</head>
-<style>
+    <link rel="icon" type="image/x-icon" href="/MathSite/images/favicon.ico" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  </head>
+  <style>
     :root {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", sans-serif;
-        background-color: #ffffff;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", sans-serif;
+      background-color: #ffffff;
     }
 
-    ul {
-        position: sticky;
-        left: 0;
-        top: 0;
-        width: 100%;
-        list-style-type: none;
-        border: 2px solid;
-        border-radius: 10px;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(255, 255, 255);
+    html {
+      scroll-behavior: smooth;
+      scroll-padding: 100px;
+    }
+
+    .navbar {
+      z-index: 1;
+      position: sticky;
+      left: 0;
+      top: 0;
+      width: 100%;
+      list-style-type: none;
+      border: 2px solid;
+      border-radius: 10px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgb(255, 255, 255);
     }
 
     #homebut {
-        display: inline;
-        float: left;
-        padding-left: 50px;
-        padding-right: 20px;
-        width: 200px;
+      display: inline;
+      float: left;
+      padding-left: 50px;
+      padding-right: 20px;
+      width: 200px;
     }
 
-    li {
-        display: inline;
-        float: left;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        width: 120px;
-        background-color: aliceblue;
+    .navbar li {
+      display: inline;
+      float: left;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      width: 120px;
+      background-color: aliceblue;
     }
 
-    li a {
-        color: black;
-        display: block;
-        text-decoration: none;
-        padding: 20px;
-        font-weight: bolder;
+    .navbar li a {
+      color: black;
+      display: block;
+      text-decoration: none;
+      padding: 20px;
+      font-weight: bolder;
     }
 
-    li:hover {
-        background-color: aqua;
+    .navbar li:hover {
+      background-color: aqua;
     }
-</style>
 
-<body>
-    <ul>
-        <a href="/MathSite/"><img src="/MathSite/images/logolong.png" alt="Math Site" id="homebut"></a>
-        <li><a href="/MathSite/definitions">Definitions</a></li>
-        <li><a href="/MathSite/formulas"><i>Formulas</i></a></li>
-        <li><a href="/MathSite/calculator">Calculator</a></li>
-        <li><a href="/MathSite/contact">Contact</a></li>
+    .math-formulas {
+      margin-left: 25%;
+      margin-right: 25%;
+      margin-bottom: 100px;
+      width: 50%;
+    }
+
+    .math-formulas div h2 {
+      margin-left: -20px;
+      margin-top: 40px;
+    }
+
+    #header {
+      position: relative;
+      left: 10%;
+      width: fit-content;
+    }
+
+    #header p {
+      font-size: larger;
+      font-weight: bold;
+      width: 200px;
+    }
+
+    #dir {
+      position: sticky;
+      left: 10px;
+      top: 120px;
+      width: 20%;
+    }
+
+    #dir li a {
+      text-decoration: none;
+      color: rgb(3, 6, 202);
+    }
+
+    #dir li a:visited {
+      text-decoration: none;
+      color: rgb(3, 6, 202);
+    }
+  </style>
+
+  <body>
+    <ul class="navbar">
+      <a href="/MathSite/"
+        ><img src="/MathSite/images/logolong.png" alt="Math Site" id="homebut"
+      /></a>
+      <li>
+        <a href="/MathSite/definitions/">Definitions</a>
+      </li>
+      <li><a href="/MathSite/formulas/"><i>Formulas</i></a></li>
+      <li><a href="/MathSite/calculator/">Calculator</a></li>
+      <li><a href="/MathSite/contact/">Contact</a></li>
     </ul>
-</body>
-<script>  
-</script>
 
+    <div id="header">
+      <p>Remember:</p>
+      if you are looking for something that you can't find on the page, simply
+      contact me at the contact page with your request.
+    </div>
+
+    <ul id="dir">
+      <h4>Table of Contents</h4>
+      <li><a href="#arithmetic">Arithmetic</a></li>
+      <li><a href="#geometry">Geometry</a></li>
+      <li><a href="#algebra">Algebra</a></li>
+      <li><a href="#linear-algebra">Linear Algebra</a></li>
+      <li><a href="#calculus">Calculus</a></li>
+    </ul>
+
+    <div class="math-formulas">
+        <div class="geometry-shapes">
+          <h2>Geometry and Shapes</h2>
+          <p><strong>Rectangle Area:</strong> \( A = \text{length} \times \text{width} \)</p>
+          <p><strong>Square Area:</strong> \( A = \text{side}^2 \)</p>
+          <p><strong>Triangle Area:</strong> \( A = \frac{1}{2} \times \text{base} \times \text{height} \)</p>
+          <p><strong>Circle Area:</strong> \( A = \pi r^2 \)</p>
+          <p><strong>Trapezoid Area:</strong> \( A = \frac{1}{2} \times (\text{base}_1 + \text{base}_2) \times \text{height} \)</p>
+          <p><strong>Parallelogram Area:</strong> \( A = \text{base} \times \text{height} \)</p>
+          <p><strong>Perimeter of a Rectangle:</strong> \( P = 2 \times (\text{length} + \text{width}) \)</p>
+          <p><strong>Perimeter of a Square:</strong> \( P = 4 \times \text{side} \)</p>
+          <p><strong>Circumference of a Circle:</strong> \( C = 2 \pi r \)</p>
+        </div>
+      
+        <div class="volumes">
+          <h2>Volumes</h2>
+          <p><strong>Cube:</strong> \( V = \text{side}^3 \)</p>
+          <p><strong>Rectangular Prism:</strong> \( V = \text{length} \times \text{width} \times \text{height} \)</p>
+          <p><strong>Cylinder:</strong> \( V = \pi r^2 h \)</p>
+          <p><strong>Sphere:</strong> \( V = \frac{4}{3} \pi r^3 \)</p>
+          <p><strong>Cone:</strong> \( V = \frac{1}{3} \pi r^2 h \)</p>
+          <p><strong>Pyramid:</strong> \( V = \frac{1}{3} \times \text{base area} \times \text{height} \)</p>
+        </div>
+      
+        <div class="graphs-lines">
+          <h2>Graphs & Lines</h2>
+          <p><strong>Slope of a Line:</strong> \( m = \frac{y_2 - y_1}{x_2 - x_1} \)</p>
+          <p><strong>Equation of a Line (Slope-Intercept Form):</strong> \( y = mx + b \)</p>
+          <p><strong>Point-Slope Form:</strong> \( y - y_1 = m(x - x_1) \)</p>
+          <p><strong>Distance Between Two Points:</strong> \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)</p>
+          <p><strong>Midpoint Formula:</strong> \( M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) \)</p>
+        </div>
+      
+        <div class="quadratics">
+          <h2>Quadratics</h2>
+          <p><strong>Quadratic Formula:</strong> \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)</p>
+          <p><strong>Vertex Form:</strong> \( y = a(x - h)^2 + k \)</p>
+          <p><strong>Axis of Symmetry:</strong> \( x = \frac{-b}{2a} \)</p>
+          <p><strong>Discriminant:</strong> \( \Delta = b^2 - 4ac \)</p>
+        </div>
+      
+        <div class="trigonometry">
+          <h2>Trigonometry</h2>
+          <p><strong>Sine:</strong> \( \sin \theta = \frac{\text{opposite}}{\text{hypotenuse}} \)</p>
+          <p><strong>Cosine:</strong> \( \cos \theta = \frac{\text{adjacent}}{\text{hypotenuse}} \)</p>
+          <p><strong>Tangent:</strong> \( \tan \theta = \frac{\text{opposite}}{\text{adjacent}} \)</p>
+          <p><strong>Pythagorean Identity:</strong> \( \sin^2 \theta + \cos^2 \theta = 1 \)</p>
+          <p><strong>Law of Sines:</strong> \( \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \)</p>
+          <p><strong>Law of Cosines:</strong> \( c^2 = a^2 + b^2 - 2ab \cos C \)</p>
+        </div>
+      
+        <div class="statistics">
+          <h2>Statistics</h2>
+          <p><strong>Mean:</strong> \( \text{Mean} = \frac{\text{Sum of all data points}}{\text{Number of data points}} \)</p>
+          <p><strong>Median:</strong> The middle value in a data set when ordered from smallest to largest.</p>
+          <p><strong>Mode:</strong> The most frequently occurring value(s) in a data set.</p>
+          <p><strong>Variance:</strong> \( \sigma^2 = \frac{\sum (x_i - \mu)^2}{N} \)</p>
+          <p><strong>Standard Deviation:</strong> \( \sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}} \)</p>
+          <p><strong>Probability:</strong> \( P(E) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}} \)</p>
+        </div>
+      
+        <div class="sequences-series">
+          <h2>Sequences & Series</h2>
+          <p><strong>Arithmetic Sequence (nth term):</strong> \( a_n = a_1 + (n - 1) \cdot d \)</p>
+          <p><strong>Arithmetic Series (Sum):</strong> \( S_n = \frac{n}{2} \cdot (a_1 + a_n) \)</p>
+          <p><strong>Geometric Sequence (nth term):</strong> \( a_n = a_1 \cdot r^{n-1} \)</p>
+          <p><strong>Geometric Series (Sum):</strong> \( S_n = a_1 \cdot \frac{1 - r^n}{1 - r} \) (for \( r \neq 1 \))</p>
+          <p><strong>Infinite Geometric Series:</strong> \( S = \frac{a_1}{1 - r} \) (for \( |r| < 1 \))</p>
+        </div>
+      </div>
+      
+  </body>
+  <script></script>
 </html>
