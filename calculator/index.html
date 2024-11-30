@@ -351,7 +351,9 @@
     document.addEventListener('keydown', function (event) {
 
         if (document.activeElement === notepad) {
-            console.log('Not calculating, focused on notepad.');
+            if (notepad.innerHTML === 'skibidi toilet ohio rizzler sigma') {
+                notepad.innerHTML = 'LOL BRAINROT SKIBIDI LOLLL TOILET WHEEE SKIBIDI SIGMA OHIO RIZZZLER :D :D :D :D';
+            }
         }
         else {
             console.log('Key pressed:', event.key);
