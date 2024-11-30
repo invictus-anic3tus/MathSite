@@ -226,6 +226,7 @@
     var ans = 0;
     var dec = false;
     var declast = 0;
+    var dza = '';
 
     async function number(number) {
 
@@ -273,6 +274,7 @@
         readhist += " " + op + " ";
         opnum = parseFloat(opnums.join(''));
         opnums = [];
+        dza = '';
         switch (op) {
             case "sin":
                 ans = Math.sin(opnum);
@@ -306,6 +308,7 @@
         readhist += " equals "
         laternum = parseFloat(opnums.join(''));
         opnums = [];
+        dza = '';
         screen.innerHTML = hist;
         switch (lastop) {
             case "×":
@@ -314,7 +317,8 @@
             case "/":
                 if (laternum === 0) {
                     console.log("Division by zero!");
-                    ans = 'NaN (division by zero)';
+                    ans = 'div0';
+                    dza = 'undefined, divided by zero.';
                     break;
                 }
                 ans = opnum / laternum;
@@ -333,9 +337,14 @@
                 break;
         }
         lastop = 'none';
-        hist.push(ans);
-        let roundans = parseFloat(ans.toFixed(5));
-        readhist += roundans + "." + "\n\n"
+        if (dza === 'undefined, divided by zero.') {
+            hist.push(dza);
+            readhist += dza + "\n\n";
+        } else {
+            hist.push(ans);
+            let roundans = parseFloat(ans.toFixed(5));
+            readhist += roundans + "." + "\n\n";
+        }
         screen.innerHTML = readhist;
     }
 
