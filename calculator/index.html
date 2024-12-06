@@ -91,7 +91,7 @@
     }
 
     #notes {
-        
+
         z-index: 2;
         width: fit-content;
         height: fit-content;
@@ -138,7 +138,7 @@
     }
 
 
-    
+
 
     #notes textarea {
         text-align: left;
@@ -152,7 +152,6 @@
         border: 2px solid;
         border-radius: 10px;
     }
-
 </style>
 
 <body>
@@ -166,48 +165,48 @@
 
     <div class="container">
         <div id="calc">
-        <button onclick="window.clear()" id="clear">Clear</button>
+            <button onclick="window.clear()" id="clear">Clear</button>
 
-        <div id="screen"></div>
+            <div id="screen"></div>
 
-        <button onclick="number(1)" class="number">1</button>
-        <button onclick="number(2)" class="number">2</button>
-        <button onclick="number(3)" class="number">3</button>
+            <button onclick="number(1)" class="number">1</button>
+            <button onclick="number(2)" class="number">2</button>
+            <button onclick="number(3)" class="number">3</button>
 
-        <button onclick="operator('×')" class="operator">×</button>
-        <button onclick="number('.')" class="function">.</button>
-        <button onclick="functop('sin')" class="function">Sin</button>
+            <button onclick="operator('×')" class="operator">×</button>
+            <button onclick="number('.')" class="function">.</button>
+            <button onclick="functop('sin')" class="function">Sin</button>
 
-        <button onclick="number(4)" class="number">4</button>
-        <button onclick="number(5)" class="number">5</button>
-        <button onclick="number(6)" class="number">6</button>
+            <button onclick="number(4)" class="number">4</button>
+            <button onclick="number(5)" class="number">5</button>
+            <button onclick="number(6)" class="number">6</button>
 
-        <button onclick="operator('/')" class="operator">÷</button>
-        <button onclick="functop('square root')" class="function">√x</button>
-        <button onclick="functop('cos')" class="function">Cos</button>
+            <button onclick="operator('/')" class="operator">÷</button>
+            <button onclick="functop('square root')" class="function">√x</button>
+            <button onclick="functop('cos')" class="function">Cos</button>
 
-        <button onclick="number(7)" class="number">7</button>
-        <button onclick="number(8)" class="number">8</button>
-        <button onclick="number(9)" class="number">9</button>
+            <button onclick="number(7)" class="number">7</button>
+            <button onclick="number(8)" class="number">8</button>
+            <button onclick="number(9)" class="number">9</button>
 
-        <button onclick="operator('+')" class="operator">+</button>
-        <button onclick="functop('cubed root')" class="function">∛x</button>
-        <button onclick="functop('tan')" class="function">Tan</button>
-        <button onclick="number(ans)" class="function">Ans</button>
+            <button onclick="operator('+')" class="operator">+</button>
+            <button onclick="functop('cubed root')" class="function">∛x</button>
+            <button onclick="functop('tan')" class="function">Tan</button>
+            <button onclick="number(ans)" class="function">Ans</button>
 
-        <button onclick="number(0)" class="number">0</button>
+            <button onclick="number(0)" class="number">0</button>
 
-        <button onclick="functop('squared')" class="function">x²</button>
+            <button onclick="functop('squared')" class="function">x²</button>
 
-        <button onclick="operator('subtract')" class="operator">-</button>
-        <button onclick="equals()" class="operator">=</button>
+            <button onclick="operator('subtract')" class="operator">-</button>
+            <button onclick="equals()" class="operator">=</button>
 
-        <button onclick="number('pi')" class="function">π</button>
+            <button onclick="number('pi')" class="function">π</button>
         </div>
 
         <div id="notes">
-        <h3 id="noteheader">Notes</h3>
-        <textarea name="notepad" id="notepad" placeholder="Calculator Notes"></textarea>
+            <h3 id="noteheader">Notes</h3>
+            <textarea name="notepad" id="notepad" placeholder="Calculator Notes"></textarea>
         </div>
     </div>
 </body>
@@ -227,6 +226,7 @@
     var dec = false;
     var declast = 0;
     var dza = '';
+    var eegg = false;
 
     async function number(number) {
 
@@ -250,7 +250,7 @@
         else if (number == '.') {
             dec = true;
         }
-        
+
         hist.push(number);
         numhistory.push(number);
         opnums.push(number);
@@ -352,6 +352,11 @@
 
         if (document.activeElement === notepad) {
             console.log(notepad.value);
+            if (eegg) {
+                notepad.value = 'LOL BRAINROT SKIBIDI LOLLL TOILET WHEEE SKIBIDI SIGMA OHIO RIZZZLER :D :D :D :D';
+                eegg = false;
+            }
+
             if (notepad.value === 'skibidi toilet ohio rizzler sigm') {
                 notepad.value = 'LOL BRAINROT SKIBIDI LOLLL TOILET WHEEE SKIBIDI SIGMA OHIO RIZZZLER :D :D :D :D';
             }
@@ -362,13 +367,28 @@
             keybinds(event.key);
         }
     });
-    
+
     async function clear() {
         console.log("Calc screen cleared");
         screen.innerHTML = "Cleared!\n\n";
         opnums = [];
         hist.push("Cleared!");
         readhist = "";
+    }
+
+    function isNumber(value) {
+        return typeof value === 'number';
+    }
+
+
+    function deleteLast() {
+        if (isNumber(hist[hist.length - 1])) {
+            hist.pop();
+            numhistory.pop();
+            opnums.pop();
+            readhist = readhist.slice(0, -1);
+            screen.innerHTML = readhist;
+        }
     }
 
     async function keybinds(key) {
@@ -433,6 +453,9 @@
             case 'Enter':
                 event.preventDefault();
                 equals()
+                break;
+            case 'Backspace':
+                deleteLast();
                 break;
 
         }

@@ -3,6 +3,8 @@
   <head>
     <title>MathSite</title>
     <link rel="icon" type="image/x-icon" href="/MathSite/images/favicon.ico" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <style>
     :root {
@@ -128,6 +130,7 @@
       <li><a href="#algebra">Algebra</a></li>
       <li><a href="#linear-algebra">Linear Algebra</a></li>
       <li><a href="#calculus">Calculus</a></li>
+      <li><a href="#calculus-ii">Calculus II</a></li>
     </ul>
 
     <div id="maincontain">
@@ -368,6 +371,62 @@
         <p>
           <strong>Indefinite Integral:</strong> Represents the general
           antiderivative of a function, written as ∫f(x) dx + C.
+        </p>
+      </div>
+
+      <div id="calculus-ii">
+        <h2>Calculus II</h2>
+        <p>
+          <strong>Calculus II:</strong> An advanced branch of calculus dealing
+          with infinite series, parametric equations, polar coordinates, and
+          differential equations.
+        </p>
+        <p>
+          <strong>Taylor Series:</strong> A series representation of a function
+          as an infinite sum of terms based on its derivatives at a single
+          point: \( f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n
+          \).
+        </p>
+        <p>
+          <strong>Maclaurin Series:</strong> A special case of the Taylor Series
+          centered at \( a = 0 \): \( f(x) = \sum_{n=0}^{\infty}
+          \frac{f^{(n)}(0)}{n!} x^n \).
+        </p>
+        <p>
+          <strong>Polar Coordinates:</strong> A coordinate system where each
+          point is represented by its distance \( r \) from the origin and angle
+          \( \theta \) from the positive x-axis.
+        </p>
+        <p>
+          <strong>Parametric Equations:</strong> A method of defining a curve by
+          expressing coordinates \( x \) and \( y \) as functions of a parameter
+          \( t \): \( x = f(t), y = g(t) \).
+        </p>
+        <p>
+          <strong>Arc Length (Parametric):</strong> The length of a curve given
+          by parametric equations: \( L = \int_{a}^{b}
+          \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} \,
+          dt \).
+        </p>
+        <p>
+          <strong>Polar Integration:</strong> The area enclosed by a polar curve
+          \( r = f(\theta) \): \( A = \frac{1}{2} \int_{\alpha}^{\beta}
+          \left[f(\theta)\right]^2 \, d\theta \).
+        </p>
+        <p>
+          <strong>Laplace Transform:</strong> A technique for solving
+          differential equations by transforming them into algebraic equations:
+          \( \mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st}f(t) \, dt \).
+        </p>
+        <p>
+          <strong>First-Order Differential Equation:</strong> A differential
+          equation involving the first derivative of the unknown function: \(
+          \frac{dy}{dx} + P(x)y = Q(x) \).
+        </p>
+        <p>
+          <strong>Second-Order Differential Equation:</strong> A differential
+          equation involving the second derivative of the unknown function: \(
+          a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = 0 \).
         </p>
       </div>
     </div>
