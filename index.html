@@ -99,6 +99,7 @@
         padding: 5px;
         background-color: white;
         position: relative;
+        font-size: 2vw;
         top: -32px;
         height: min-content;
         width: fit-content;
@@ -109,7 +110,7 @@
         border-radius: 10px;
         width: 150px;
         height: 30px;
-        font-size: large;
+        font-size: 2vw;
     }
     form label {
         width: fit-content;
@@ -125,7 +126,7 @@
         padding-top: 10px;
         border: 2px solid;
         border-radius: 5px;
-        font-size: large;
+        font-size: 2vw;
     }
 
     #send {
@@ -148,7 +149,7 @@
     }
 
     div.maintext {
-        font-size: larger;
+        font-size: 2vw;
     }
     div.maintext a {
         text-decoration: none;
@@ -162,6 +163,50 @@
     div h3 {
         padding: 0px;
         margin: 0px;
+        font-size: 3vw;
+    }
+
+    @media (max-width: 1300px) {
+        .maintext {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        form {
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .mtext {
+            opacity: 0;
+        }
+    }
+    @media (max-width: 800px) {
+        .maintext div {
+            font-size: 4vw;
+        }
+        form {
+            margin-top: 50px;
+            width: 80%;
+        }
+        .ctext {
+            font-size: 4vw;
+        }
+        form input {
+            width: 80%;
+            margin-bottom: 5%;
+        }
+        form textarea {
+            width: 80%;
+            margin-top: 0;
+            margin-bottom: 5%;
+        }
+        .mtext {
+            opacity: 1;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin: auto;
+        }
     }
 </style>
 
